@@ -27,33 +27,73 @@ from tips
 ;
 
 
+Answer: 157 Males and 87 Females were payers
+
+
 2.	How many people visited the restaurant in total ? 
 select sum (size) from tips;
+
+
+Answer: 627 people had visited the restaurant 
 
 
 3.	Day wise splint of visits
 select count(day), day from tips group by day;
 
+Answer:
+	19	"Fri"
+	87	"Sat"
+	76	"Sun"
+	62	"Thur"
+
 
 4.	Day wise split of people who visited 
 select sum (size), day from tips group by day;
 
+Answer: 
 
-5.	Time wise count of people who visited
+40	"Fri"
+219	"Sat"
+216	"Sun"
+152	"Thur"
+
+
+5.	Time wise split of people who visited
 select count (time), time from tips group by time;
+
+Answer: 
+
+176	"Dinner"
+68	"Lunch"
 
 
 6.	Total tips received
 select sum(tip) from tips;
 
+Answer: 731.58
+
 
 7.	Day wise split of tips received 
 select sum(tip), day from tips group by day;
+
+Answer: 
+
+171.83	"Thur"
+247.39	"Sun"
+260.40	"Sat"
+51.96	"Fri"
 
 
 8.	Time wise split of tips received 
 select sum(tip), time from tips group by time;
 
+Answer: 
+
+546.07	"Dinner"
+185.51	"Lunch"
+
 
 9.	Number of smokers among the payers
 select count(smoker) from tips;
+
+Answer: 244
