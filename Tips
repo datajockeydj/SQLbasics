@@ -1,0 +1,59 @@
+drop table if exists tips; 
+create table tips (
+	"total bill" numeric (6,2), 
+	"tip" numeric (6,2),
+	"sex" varchar (10),
+	"smoker" varchar (10),
+	"day" varchar (10),
+	"time" varchar (10),
+	"size" numeric (10));
+
+1.	How many males and females are payers? 
+select 
+Sum(
+case 
+when sex = 'Male'
+then 1
+	else 0
+	end) as sumofmales
+, 
+Sum(
+case 
+when sex = 'Female'
+then 1
+	else 0
+	end) as sumoffemales
+from tips
+;
+
+
+2.	How many people visited the restaurant in total ? 
+select sum (size) from tips;
+
+
+3.	Day wise splint of visits
+select count(day), day from tips group by day;
+
+
+4.	Day wise split of people who visited 
+select sum (size), day from tips group by day;
+
+
+5.	Time wise count of people who visited
+select count (time), time from tips group by time;
+
+
+6.	Total tips received
+select sum(tip) from tips;
+
+
+7.	Day wise split of tips received 
+select sum(tip), day from tips group by day;
+
+
+8.	Time wise split of tips received 
+select sum(tip), time from tips group by time;
+
+
+9.	Number of smokers among the payers
+select count(smoker) from tips;
